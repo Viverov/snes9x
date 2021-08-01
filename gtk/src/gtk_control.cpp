@@ -20,12 +20,16 @@
 const BindingLink b_links[] =
 {
         /* Joypad-specific bindings. "Joypad# " will be prepended */
-        { "b_up",        "Up"          },
-        { "b_down",      "Down"        },
-        { "b_left",      "Left"        },
-        { "b_right",     "Right"       },
-        { "b_start",     "Start"       },
-        { "b_select",    "Select"      },
+        { "b_up",            "Up"              },
+        { "b_up_alt",        "Up alt"          },
+        { "b_down",          "Down"            },
+        { "b_down_alt",      "Down alt"        },
+        { "b_left",          "Left"            },
+        { "b_left_alt",      "Left alt"        },
+        { "b_right",         "Right"           },
+        { "b_right_alt",     "Right alt"       },
+        { "b_start",         "Start"           },
+        { "b_select",        "Select"          },
         { "b_a",         "A"           },
         { "b_b",         "B"           },
         { "b_x",         "X"           },
@@ -430,6 +434,7 @@ void S9xProcessEvents(bool8 block)
 {
     JoyEvent event;
     Binding  binding;
+
 
     if (S9xGrabJoysticks())
     {

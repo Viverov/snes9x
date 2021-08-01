@@ -1228,7 +1228,11 @@ s9xcommand_t S9xGetCommandT (const char *name)
 
 			i = 0;
 
-			if (!strncmp(s, "Up",     2))	{ i |= SNES_UP_MASK;     s += 2; if (*s == '+') s++; }
+			if (!strncmp(s, "Up alt", 6))	{ i |= SNES_UP_MASK;     s += 6; if (*s == '+') s++; }
+            if (!strncmp(s, "Down alt",   8))	{ i |= SNES_DOWN_MASK;   s += 8; if (*s == '+') s++; }
+            if (!strncmp(s, "Left alt",   8))	{ i |= SNES_LEFT_MASK;   s += 8; if (*s == '+') s++; }
+            if (!strncmp(s, "Right alt",  9))	{ i |= SNES_RIGHT_MASK;  s += 9; if (*s == '+') s++; }
+            if (!strncmp(s, "Up",     2))	{ i |= SNES_UP_MASK;     s += 2; if (*s == '+') s++; }
 			if (!strncmp(s, "Down",   4))	{ i |= SNES_DOWN_MASK;   s += 4; if (*s == '+') s++; }
 			if (!strncmp(s, "Left",   4))	{ i |= SNES_LEFT_MASK;   s += 4; if (*s == '+') s++; }
 			if (!strncmp(s, "Right",  5))	{ i |= SNES_RIGHT_MASK;  s += 5; if (*s == '+') s++; }
