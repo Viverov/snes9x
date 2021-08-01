@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
-// Used by snes9x.rc
+// Включаемый файл, созданный в Microsoft Visual C++.
+// Используется snes9x.rc
 //
 #define IDR_RT_MANIFEST2                1
 #define IDCANCEL2                       3
@@ -116,6 +116,7 @@
 #define IDC_SKIPCOUNT                   1091
 #define IDC_MAXSKIP                     1092
 #define IDC_MULTICART_EDITB             1092
+#define IDC_UP_ALT                      1092
 #define IDC_PAUSESPIN                   1093
 #define IDC_DWNRIGHT                    1093
 #define IDC_SHADER_GLSL_FILE            1093
@@ -139,7 +140,9 @@
 #define IDC_A                           1104
 #define IDC_X                           1105
 #define IDC_RIGHT                       1106
+#define IDC_LEFT_ALT                    1107
 #define IDC_SHOWFPS                     1108
+#define IDC_RIGHT_ALT                   1108
 #define IDC_STRETCH                     1109
 #define IDC_FULLSCREEN                  1110
 #define IDC_EMUFULLSCREEN               1111
@@ -236,9 +239,14 @@
 #define IDC_LABEL_DOWNRIGHT             1175
 #define IDC_LABEL_DOWNLEFT              1176
 #define IDC_LABEL_FREEZE                1177
+#define IDC_LABEL_LEFT2                 1177
+#define IDC_LABEL_LEFT_ALT              1177
 #define IDC_LABEL_ASRAM                 1178
+#define IDC_LABEL_UP_ALT                1178
 #define IDC_LABEL_SMAX                  1179
+#define IDC_LABEL_DOWN_ALT              1179
 #define IDC_LABEL_STURBO                1180
+#define IDC_LABEL_RIGHT_ALT             1180
 #define IDC_LABEL_ASRAM_TEXT            1181
 #define IDC_LABEL_UP2                   1181
 #define IDC_LABEL_SMAX_TEXT             1182
@@ -416,6 +424,7 @@
 #define IDC_NO_SPRITE_LIMIT             3037
 #define IDC_SET_DEFAULTS                3038
 #define IDC_BUTTON_SLOT_1               3039
+#define IDC_DOWN_ALT                    3040
 #define IDC_STATIC_SLOT_1               3059
 #define ID_FILE_EXIT                    40001
 #define ID_WINDOW_HIDEMENUBAR           40004
@@ -553,7 +562,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        169
 #define _APS_NEXT_COMMAND_VALUE         40181
-#define _APS_NEXT_CONTROL_VALUE         3040
+#define _APS_NEXT_CONTROL_VALUE         3041
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

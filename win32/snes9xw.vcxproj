@@ -22,7 +22,7 @@
     <ProjectName>snes9x</ProjectName>
     <ProjectGuid>{B86059D8-C9A6-46BE-8FBA-3170C54F1DFD}</ProjectGuid>
     <RootNamespace>Snes9X</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Unicode|Win32'" Label="Configuration">
@@ -101,8 +101,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Unicode|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetName>$(ProjectName)-x64</TargetName>
-    <IncludePath>$(DXSDK_DIR)include;$(CG_INC_PATH);$(IncludePath)</IncludePath>
-    <LibraryPath>$(DXSDK_DIR)Lib\$(PlatformTarget);$(CG_LIB64_PATH);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(DXSDK_DIR)include;$(CG_INC_PATH);$(IncludePath);D:\Microsoft DirectX SDK (June 2010)\Include</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\$(PlatformTarget);$(CG_LIB64_PATH);$(LibraryPath);D:\Microsoft DirectX SDK (June 2010)\Lib\x64</LibraryPath>
     <OutDir>$(SolutionDir)</OutDir>
     <IntDir>$(SolutionDir)_Intermediate\$(ProjectName)\$(Configuration)\$(PlatformTarget)\</IntDir>
   </PropertyGroup>

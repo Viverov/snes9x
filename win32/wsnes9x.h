@@ -344,18 +344,22 @@ struct SJoypad {
         WORD Left;
         WORD Autohold;
     };
+	WORD Left_Alt;
     union {
         WORD Right;
         WORD ClearAll;
     };
+	WORD Right_Alt;
     union {
         WORD Up;
         WORD TempTurbo;
     };
+	WORD Up_Alt;
     union {
         WORD Down;
         WORD Autofire;
     };
+	WORD Down_Alt;
     WORD Left_Up;
     WORD Left_Down;
     WORD Right_Up;
@@ -377,9 +381,13 @@ struct SJoyState{
     JOYCAPS Caps;
     int Threshold;
     bool Left;
+    bool LeftAlt;
     bool Right;
+    bool RightAlt;
     bool Up;
+    bool UpAlt;
     bool Down;
+    bool DownAlt;
     bool PovLeft;
     bool PovRight;
     bool PovUp;

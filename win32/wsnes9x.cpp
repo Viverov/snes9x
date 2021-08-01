@@ -170,7 +170,7 @@ HINSTANCE g_hInst;
 struct SJoypad Joypad[16] = {
     {
         true,					/* Joypad 1 enabled */
-			VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN,	/* Left, Right, Up, Down */
+			VK_LEFT, 0, VK_RIGHT, 0, VK_UP, 0, VK_DOWN,	0, /* Left, Left alt, Right, Right alt, Up, Up alt, Down, Down alt */
 			0, 0, 0, 0,             /* Left_Up, Left_Down, Right_Up, Right_Down */
 			VK_SPACE, VK_RETURN,    /* Start, Select */
 			'V', 'C',				/* A B */
@@ -179,7 +179,7 @@ struct SJoypad Joypad[16] = {
     },
     {
 			true,                                  /* Joypad 2 enabled */
-				'J', 'L', 'I', 'K',	/* Left, Right, Up, Down */
+				'J', 0, 'L', 0, 'I', 0, 'K', 0, /* Left, Left alt, Right, Right alt, Up, Up alt, Down, Down alt */
 				0, 0, 0, 0,         /* Left_Up, Left_Down, Right_Up, Right_Down */
 				'P', 'O',          /* Start, Select */
 				'H', 'G',			/* A B */
@@ -254,35 +254,35 @@ struct SJoypad Joypad[16] = {
 SJoypad ToggleJoypadStorage [8] = {
 	{
 			false,
-				0, 0, 0, 0,
-				0, 0, 0, 0,
-				0, 0,
-				0, 0, 0, 0, 0, 0
-		},
-	{
-			false,
-				0, 0, 0, 0,
+				0, 0, 0, 0, 0, 0, 0, 0,
 				0, 0, 0, 0,
 				0, 0,
 				0, 0, 0, 0, 0, 0
 		},
 	{
 			false,
-				0, 0, 0, 0,
-				0, 0, 0, 0,
-				0, 0,
-				0, 0, 0, 0, 0, 0
-		},
-	{
-			false,
-				0, 0, 0, 0,
+				0, 0, 0, 0, 0, 0, 0, 0,
 				0, 0, 0, 0,
 				0, 0,
 				0, 0, 0, 0, 0, 0
 		},
 	{
 			false,
+				0, 0, 0, 0, 0, 0, 0, 0,
 				0, 0, 0, 0,
+				0, 0,
+				0, 0, 0, 0, 0, 0
+		},
+	{
+			false,
+				0, 0, 0, 0, 0, 0, 0, 0,
+				0, 0, 0, 0,
+				0, 0,
+				0, 0, 0, 0, 0, 0
+		},
+	{
+			false,
+				0, 0, 0, 0, 0, 0, 0, 0,
 				0, 0, 0, 0,
 				0, 0,
 				0, 0, 0, 0, 0, 0
@@ -748,9 +748,13 @@ int HandleKeyMessage(WPARAM wParam, LPARAM lParam)
 			if(wParam == Joypad[J].Start) p.Start = !p.Start;
 			if(wParam == Joypad[J].Select) p.Select = !p.Select;
 			if(wParam == Joypad[J].Left) p.Left = !p.Left;
+			if(wParam == Joypad[J].Left_Alt) p.Left = !p.Left_Alt;
 			if(wParam == Joypad[J].Right) p.Right = !p.Right;
+			if(wParam == Joypad[J].Right_Alt) p.Right = !p.Right_Alt;
 			if(wParam == Joypad[J].Up) p.Up = !p.Up;
+			if(wParam == Joypad[J].Up_Alt) p.Up = !p.Up_Alt;
 			if(wParam == Joypad[J].Down) p.Down = !p.Down;
+			if(wParam == Joypad[J].Down_Alt) p.Down = !p.Down_Alt;
 //			if(wParam == Joypad[J].Left_Down) p.Left_Down = !p.Left_Down;
 //			if(wParam == Joypad[J].Left_Up) p.Left_Up = !p.Left_Up;
 //			if(wParam == Joypad[J].Right_Down) p.Right_Down = !p.Right_Down;
@@ -803,9 +807,13 @@ int HandleKeyMessage(WPARAM wParam, LPARAM lParam)
 				p.Start = false;
 				p.Select = false;
 				p.Left = false;
+				p.Left_Alt = false;
 				p.Right = false;
+				p.Right_Alt = false;
 				p.Up = false;
+				p.Up_Alt = false;
 				p.Down = false;
+				p.Down_Alt = false;
 			}
 			{
 				SJoypad & p = TurboToggleJoypadStorage[J];
@@ -818,9 +826,13 @@ int HandleKeyMessage(WPARAM wParam, LPARAM lParam)
 				p.Start = false;
 				p.Select = false;
 				p.Left = false;
+				p.Left_Alt = false;
 				p.Right = false;
+				p.Right_Alt = false;
 				p.Up = false;
+				p.Up_Alt = false;
 				p.Down = false;
+				p.Down_Alt = false;
 			}
 		}
 	}
@@ -8131,9 +8143,13 @@ updateFilterBox2:
 static void set_buttoninfo(int index, HWND hDlg)
 {
 	SendDlgItemMessage(hDlg,IDC_UP,WM_USER+44,Joypad[index].Up,0);
+	SendDlgItemMessage(hDlg,IDC_UP_ALT,WM_USER+44,Joypad[index].Up_Alt,0);
 	SendDlgItemMessage(hDlg,IDC_LEFT,WM_USER+44,Joypad[index].Left,0);
+	SendDlgItemMessage(hDlg,IDC_LEFT_ALT,WM_USER+44,Joypad[index].Left_Alt,0);
 	SendDlgItemMessage(hDlg,IDC_DOWN,WM_USER+44,Joypad[index].Down,0);
+	SendDlgItemMessage(hDlg,IDC_DOWN_ALT,WM_USER+44,Joypad[index].Down_Alt,0);
 	SendDlgItemMessage(hDlg,IDC_RIGHT,WM_USER+44,Joypad[index].Right,0);
+	SendDlgItemMessage(hDlg,IDC_RIGHT_ALT,WM_USER+44,Joypad[index].Right_Alt,0);
 	SendDlgItemMessage(hDlg,IDC_A,WM_USER+44,Joypad[index].A,0);
 	SendDlgItemMessage(hDlg,IDC_B,WM_USER+44,Joypad[index].B,0);
 	SendDlgItemMessage(hDlg,IDC_X,WM_USER+44,Joypad[index].X,0);
@@ -8267,17 +8283,33 @@ switch(msg)
 		case IDC_UP:
 			Joypad[index].Up = wParam;
 
+			break;		
+		case IDC_UP_ALT:
+			Joypad[index].Up_Alt = wParam;
+
 			break;
 		case IDC_DOWN:
 			Joypad[index].Down = wParam;
 
 			break;
+		case IDC_DOWN_ALT:
+			Joypad[index].Down_Alt = wParam;
+
+			break;
 		case IDC_LEFT:
 			Joypad[index].Left = wParam;
+
+			break;		
+		case IDC_LEFT_ALT:
+			Joypad[index].Left_Alt = wParam;
 
 			break;
 		case IDC_RIGHT:
 			Joypad[index].Right = wParam;
+
+			break;		
+		case IDC_RIGHT_ALT:
+			Joypad[index].Right_Alt = wParam;
 
 			break;
 		case IDC_A:

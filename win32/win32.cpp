@@ -728,10 +728,10 @@ void S9xWinScanJoypads ()
 				PadState[0] |= ToggleJoypadStorage[J].A||TurboToggleJoypadStorage[J].A      ? 128 : 0;
 
 	            PadState[1]  = 0;
-				PadState[1] |= ToggleJoypadStorage[J].Right||TurboToggleJoypadStorage[J].Right   ?   1 : 0;
-				PadState[1] |= ToggleJoypadStorage[J].Left||TurboToggleJoypadStorage[J].Left     ?   2 : 0;
-				PadState[1] |= ToggleJoypadStorage[J].Down||TurboToggleJoypadStorage[J].Down     ?   4 : 0;
-				PadState[1] |= ToggleJoypadStorage[J].Up||TurboToggleJoypadStorage[J].Up         ?   8 : 0;
+				PadState[1] |= ToggleJoypadStorage[J].Right || ToggleJoypadStorage[J].Right_Alt || TurboToggleJoypadStorage[J].Right   ?   1 : 0;
+				PadState[1] |= ToggleJoypadStorage[J].Left|| ToggleJoypadStorage[J].Left_Alt ||  TurboToggleJoypadStorage[J].Left     ?   2 : 0;
+				PadState[1] |= ToggleJoypadStorage[J].Down|| ToggleJoypadStorage[J].Down_Alt || TurboToggleJoypadStorage[J].Down     ?   4 : 0;
+				PadState[1] |= ToggleJoypadStorage[J].Up|| ToggleJoypadStorage[J].Up_Alt || TurboToggleJoypadStorage[J].Up         ?   8 : 0;
 				PadState[1] |= ToggleJoypadStorage[J].Start||TurboToggleJoypadStorage[J].Start   ?  16 : 0;
 				PadState[1] |= ToggleJoypadStorage[J].Select||TurboToggleJoypadStorage[J].Select ?  32 : 0;
 				PadState[1] |= ToggleJoypadStorage[J].Y||TurboToggleJoypadStorage[J].Y           ?  64 : 0;
@@ -746,13 +746,17 @@ void S9xWinScanJoypads ()
 				PadState[0] ^= (!S9xGetState(Joypad[J].A)||!S9xGetState(Joypad[J+8].A))      ? 128 : 0;
 
 				PadState[1] ^= (!S9xGetState(Joypad[J].Right))      ? 1     : 0;
+				PadState[1] ^= (!S9xGetState(Joypad[J].Right_Alt))      ? 1     : 0;
 				PadState[1] ^= (!S9xGetState(Joypad[J].Right_Up))   ? 1 + 8 : 0;
 				PadState[1] ^= (!S9xGetState(Joypad[J].Right_Down)) ? 1 + 4 : 0;
 				PadState[1] ^= (!S9xGetState(Joypad[J].Left))       ? 2     : 0;
+				PadState[1] ^= (!S9xGetState(Joypad[J].Left_Alt))       ? 2     : 0;
 				PadState[1] ^= (!S9xGetState(Joypad[J].Left_Up))    ? 2 + 8 : 0;
 				PadState[1] ^= (!S9xGetState(Joypad[J].Left_Down))  ? 2 + 4 : 0;
 				PadState[1] ^= (!S9xGetState(Joypad[J].Down))       ?     4 : 0;
+				PadState[1] ^= (!S9xGetState(Joypad[J].Down_Alt))       ?     4 : 0;
 				PadState[1] ^= (!S9xGetState(Joypad[J].Up))         ?     8 : 0;
+				PadState[1] ^= (!S9xGetState(Joypad[J].Up_Alt))         ?     8 : 0;
 				PadState[1] ^= (!S9xGetState(Joypad[J].Start)||!S9xGetState(Joypad[J+8].Start))   ?  16 : 0;
 				PadState[1] ^= (!S9xGetState(Joypad[J].Select)||!S9xGetState(Joypad[J+8].Select)) ?  32 : 0;
 				PadState[1] ^= (!S9xGetState(Joypad[J].Y)||!S9xGetState(Joypad[J+8].Y))           ?  64 : 0;
